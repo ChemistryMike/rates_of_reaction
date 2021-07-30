@@ -10,6 +10,9 @@ let particleA = numberParticles
 let particleB = numberParticles - particleA
 let roundNumber = 0
 
+let dataSetOne = [{x: roundNumber, y: particleA}]
+let dataSetTwo = [{x: roundNumber, y: particleB}]
+
 let diceSize = 6
 let targetNumber = 3
 
@@ -25,12 +28,17 @@ const diceRoller = () => {
     particleA = numberParticles - particleB
 }
 
+const lineChartData = (x, y1, y2) => {
+    dataSetOne.push({x: x, y: y1})
+    dataSetTwo.push({x: x, y: y2})
+}
 const roundEvent = (numRounds) => {
     for (let j = 1; j <= numRounds; j++) {
         roundNumber++
         diceRoller()
-        console.log(`At the end of Round ${roundNumber}, there are ${particleA} white particles and ${particleB} black particles`)
+        lineChartData(roundNumber, particleA, particleB)
     }
 }
 
 roundEvent(10)
+console.log(dataSetOne)
