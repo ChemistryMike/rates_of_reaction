@@ -1,5 +1,3 @@
-import Chart from 'https://cdn.jsdelivr.net/npm/chart.js@3.5.0/dist/chart.min.js/auto';
-
 /* Rates of reaction simulation
 This simulation will cover:
 a) Forward only - random dice rolls
@@ -11,9 +9,6 @@ let numberParticles = 1000000
 let particleA = numberParticles
 let particleB = numberParticles - particleA
 let roundNumber = 0
-
-let xDataSet = [roundNumber]
-let yDataSetA = [particleA]
 
 let diceSize = 6
 let targetNumber = 3
@@ -31,9 +26,11 @@ const diceRoller = () => {
 }
 
 const lineChartData = (x, y1, y2) => {
-    xDataSet.push(x)
-    yDataSetA.push(y)
+    rateLineGraph.data.labels.push(x)
+    rateLineGraph.data.datasets[0].data.push(y1)
+    rateLineGraph.update()
 }
+
 const roundEvent = (numRounds) => {
     for (let j = 1; j <= numRounds; j++) {
         roundNumber++
@@ -48,14 +45,21 @@ var ctx = document.getElementById('rateLineGraph');
 var rateLineGraph = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: xDataSet,
+        labels: [0],
         datasets: [{
             label: 'Number of white cells',
-            data: yDataSetA,
+            data: [particleA],
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1
         }]
+    },
+    options: {
+        scales: {
+            y: {
+                suggestedMin: 0,
+                suggestedMax: numberParticles
+            }
+        }
     }
 });
-
