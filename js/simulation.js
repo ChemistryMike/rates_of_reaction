@@ -28,6 +28,7 @@ const diceRoller = () => {
 const lineChartData = (x, y1, y2) => {
     rateLineGraph.data.labels.push(x)
     rateLineGraph.data.datasets[0].data.push(y1)
+    rateLineGraph.data.datasets[1].data.push(y2)
     rateLineGraph.update()
 }
 
@@ -52,7 +53,13 @@ var rateLineGraph = new Chart(ctx, {
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1
-        }]
+        },{
+            label: 'Number of black cells',
+            data: [particleB],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+    }]
     },
     options: {
         scales: {
