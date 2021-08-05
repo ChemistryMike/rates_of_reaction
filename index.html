@@ -1,24 +1,29 @@
-<head>
-</head>
-<body>
-    <div>
-        <h1>Rate of Reaction simulation</h1>
-    </div>
-    <div>
-        <p>This is the instruction section</p>
-    </div>
-    <div>
-        <p>This is the controls & settings sections</p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rates of Reaction Simulation</title>
+    </head>
+    <body>
         <div>
-            <button onClick="roundEvent(10)">Start</button>
-            <button>Stop</button>
-            <button>Reset</button>
+            <h1>Rate of Reaction simulation</h1>
         </div>
-    </div>
-    <div>
-        <p>This is the output section</p>
-        <canvas id="rateLineGraph" width="400" height="400"></canvas>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js" integrity="sha512-asxKqQghC1oBShyhiBwA+YgotaSYKxGP1rcSYTDrB0U6DxwlJjU59B67U8+5/++uFjcuVM8Hh5cokLjZlhm3Vg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="js/simulation.js"></script>
-</body>
+        <div>
+            <p>This is the instruction section</p>
+            <hr />
+        </div>
+        <div>
+            <p>This is the controls & settings sections</p>
+            <div>
+                <button onClick="roundEvent(10)">Start</button>
+                <button>Stop</button>
+                <button>Reset</button>
+            </div>
+        </div>
+        <div>
+            <p>This is the output section</p>
+            <canvas id="rateLineGraph" width="400" height="400"></canvas>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js" integrity="sha512-asxKqQghC1oBShyhiBwA+YgotaSYKxGP1rcSYTDrB0U6DxwlJjU59B67U8+5/++uFjcuVM8Hh5cokLjZlhm3Vg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="js/simulation.js"></script>
+    </body>
+</html>
